@@ -1,0 +1,46 @@
+import * as actionTypes from '../actions/actionTypes'
+
+const initialState = {
+    currentWeather: null,
+    dailyWeather: [],
+    latAndLon: {},
+    showForecast: false,
+    error: '',
+}
+
+const fetchForecastSuccess = (state, action) => {
+    const { humidity, sunrise, sunset, temp, wind_speed, uvi, feels_like, weather } = action.content.current
+
+    return {
+        ...state,
+        currentWeather: { humidity, sunrise, sunset, temp, wind_speed, uvi, feels_like, weather },
+        dailyWeather: action.content.daily,
+        latAndLon: {
+            lat: action.content.lat,
+            lon: action.content.lon,
+        },
+        showForecast: true,
+        error: false,
+    }
+}
+
+const fetchForecastFailed = (state, action) => {
+    return {
+        ...state,
+        showForecast: false,
+        error: action.error,
+    }
+}
+
+const reducer = (state = initialState, action) => {
+    // eslint-disable-next-line default-case
+    switch (action.type) {
+        case actionTypes.FETCH_FORECAST_SUCCESS:
+            return fetchForecastSuccess(state, action)
+        case actionTypes.FETCH_FORECAST_FAILED:
+            return fetchForecastFailed(state, action)
+    }
+    return state
+}
+
+export default reducer

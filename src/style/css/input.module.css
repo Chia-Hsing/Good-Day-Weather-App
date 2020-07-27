@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap');
+
+.Input {
+    margin: auto;
+    width: 40vw;
+    height: 10px;
+    border: 1px solid #dbdbdbd7;
+    border-radius: 30px;
+    background-color: white;
+    font-size: 1.1em;
+    color: #1d1d1dd7;
+    padding: 20px;
+    box-shadow: 0px 2px 4px 1px #3838387c;
+    font-family: 'Rajdhani', sans-serif;
+    transition: all 0.4s ease;
+}
+
+.Input::placeholder {
+    color: #949bb1d7;
+}
+
+.Input:focus {
+    outline: none;
+    box-shadow: 2px 8px 10px 2px #3838387c;
+}
+
+@media (max-width: 1000px) {
+    .Input {
+        width: 60vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .Input {
+        width: 80vw;
+    }
+}
