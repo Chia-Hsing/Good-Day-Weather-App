@@ -1,4 +1,5 @@
 import * as actionTypes from '../actions/actionTypes'
+import { updateObj } from '../../shared/utility'
 
 const initialState = {
     currentWeather: null,
@@ -9,10 +10,10 @@ const initialState = {
 }
 
 const fetchForecastSuccess = (state, action) => {
-    const { humidity, sunrise, sunset, temp, wind_speed, uvi, feels_like, weather } = action.content.current
+    const { humidity, sunrise, sunset, temp, wind_speed, uvi, feels_like } = action.content.current
+    const weather = action.content.current.weather[0].description
 
-    return {
-        ...state,
+    return updateObj(state, {
         currentWeather: { humidity, sunrise, sunset, temp, wind_speed, uvi, feels_like, weather },
         dailyWeather: action.content.daily,
         latAndLon: {
@@ -21,15 +22,14 @@ const fetchForecastSuccess = (state, action) => {
         },
         showForecast: true,
         error: false,
-    }
+    })
 }
 
 const fetchForecastFailed = (state, action) => {
-    return {
-        ...state,
+    return updateObj(state, {
         showForecast: false,
         error: action.error,
-    }
+    })
 }
 
 const reducer = (state = initialState, action) => {

@@ -1,0 +1,48 @@
+.CurrentWeather {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(122, 70, 90);
+    width: 90%;
+    height: 300px;
+    margin: auto;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.CurrentWeatherOverview {
+    color: white;
+    position: relative;
+    width: 50%;
+}
+
+.CurrentWeatherOverview div:first-of-type {
+    position: absolute;
+    top: 12%;
+    right: 10%;
+    font-size: 5em;
+}
+
+.CurrentWeatherOverview div:nth-of-type(2) {
+    position: absolute;
+    top: 60%;
+    right: 13%;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+.CurrentWeatherDetail {
+    color: white;
+    width: 50%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+}
+
+.CurrentWeatherDetail span:nth-of-type(2) {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.4em;
+    font-size: bold;
+}

@@ -4,9 +4,10 @@ import { connect } from 'react-redux'
 import Aux from '../HOC/Aux'
 import Title from '../components/title'
 import Input from '../components/input'
-import Layout from '../components/layout'
 import * as actions from '../store/actions/forecast'
 import { OpenWeatherAPIKey, googleGeoAPIKey } from '../APIKey.js'
+import Modal from '../components/modal'
+import CurrentWeather from '../components/currentWeather'
 
 class Home extends Component {
     componentDidMount() {
@@ -21,11 +22,16 @@ class Home extends Component {
     }
 
     render() {
+        let curWeather = null
+        if (this.props.currentWeather) {
+            curWeather = <CurrentWeather currentWeather={this.props.currentWeather} />
+        }
+
         return (
             <Aux>
                 <Title />
                 <Input KeyDown={(e) => this.onKeyDownHandler(e)} />
-                {/* <weather /> */}
+                <Modal>{curWeather}</Modal>
             </Aux>
         )
     }

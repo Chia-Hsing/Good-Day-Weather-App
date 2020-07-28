@@ -1,7 +1,7 @@
 import React from 'react'
 import './style/css/App.css'
 
-import Home from './containers/home'
+import Home from './containers/Home'
 import Layout from './components/layout'
 
 function App() {
