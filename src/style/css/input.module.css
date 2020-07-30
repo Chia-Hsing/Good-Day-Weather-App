@@ -10,9 +10,9 @@
     font-size: 1.1em;
     color: #1d1d1dd7;
     padding: 20px;
-    box-shadow: 0px 2px 4px 1px #3838387c;
+    box-shadow: 5px 6px 4px 1px rgba(31, 38, 43, 0.473);
     font-family: 'Rajdhani', sans-serif;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease-in;
 }
 
 .Input::placeholder {
@@ -21,7 +21,7 @@
 
 .Input:focus {
     outline: none;
-    box-shadow: 2px 8px 10px 2px #3838387c;
+    box-shadow: 7px 10px 7px 2px rgba(31, 38, 43, 0.473);
 }
 
 @media (max-width: 1000px) {

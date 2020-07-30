@@ -4,7 +4,8 @@ import { updateObj } from '../../shared/utility'
 const initialState = {
     currentWeather: null,
     dailyWeather: [],
-    latAndLon: {},
+    timezone: '',
+    position: null,
     showForecast: false,
     error: '',
 }
@@ -16,10 +17,8 @@ const fetchForecastSuccess = (state, action) => {
     return updateObj(state, {
         currentWeather: { humidity, sunrise, sunset, temp, wind_speed, uvi, feels_like, weather },
         dailyWeather: action.content.daily,
-        latAndLon: {
-            lat: action.content.lat,
-            lon: action.content.lon,
-        },
+        timezone: action.content.timezone,
+        position: action.position,
         showForecast: true,
         error: false,
     })

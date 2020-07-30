@@ -1,6 +1,5 @@
 .Title {
     margin: 0 auto 30px;
-    /* width: auto; */
     font-size: 1em;
     transition: all 0.4s ease;
 }
@@ -9,7 +8,6 @@
     .Title {
         font-size: 0.8em;
         margin: 0 auto 30px;
-        /* width: auto; */
     }
 }
 
@@ -17,6 +15,5 @@
     .Title {
         font-size: 0.6em;
         margin: 0 auto 30px;
-        /* width: auto; */
     }
 }

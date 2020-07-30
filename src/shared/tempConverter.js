@@ -1,9 +1,9 @@
-const fToC = (temp) => {
-    return Math.round(((temp - 32) * 5) / 9)
+const kTOc = (temp) => {
+    return Math.round(temp - 273.15)
 }
 
-const cToF = (temp) => {
-    return Math.round((temp * 9) / 5 + 32)
+const kTOF = (temp) => {
+    return Math.round((temp * 9) / 5 - 459.67)
 }
 
-export { fToC, cToF }
+export { kTOc, kTOF }

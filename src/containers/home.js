@@ -6,12 +6,13 @@ import Title from '../components/title'
 import Input from '../components/input'
 import * as actions from '../store/actions/forecast'
 import { OpenWeatherAPIKey, googleGeoAPIKey } from '../APIKey.js'
-import Modal from '../components/modal'
 import CurrentWeather from '../components/currentWeather'
 
 class Home extends Component {
     componentDidMount() {
-        this.props.onSearchCurrentLocation(OpenWeatherAPIKey, googleGeoAPIKey)
+        setTimeout(() => {
+            this.props.onSearchCurrentLocation(OpenWeatherAPIKey, googleGeoAPIKey)
+        }, 1000)
     }
 
     onKeyDownHandler = (e) => {
@@ -24,14 +25,20 @@ class Home extends Component {
     render() {
         let curWeather = null
         if (this.props.currentWeather) {
-            curWeather = <CurrentWeather currentWeather={this.props.currentWeather} />
+            curWeather = (
+                <CurrentWeather
+                    cityShown={this.props.position}
+                    currentWeather={this.props.currentWeather}
+                    timezone={this.props.timezone}
+                />
+            )
         }
 
         return (
             <Aux>
                 <Title />
                 <Input KeyDown={(e) => this.onKeyDownHandler(e)} />
-                <Modal>{curWeather}</Modal>
+                {curWeather}
             </Aux>
         )
     }
@@ -41,7 +48,8 @@ const mapStateToProps = (state) => {
     return {
         currentWeather: state.currentWeather,
         dailyWeather: state.dailyWeather,
-        latAndLon: state.latAndLon,
+        position: state.position,
+        timezone: state.timezone,
         showForecast: state.showForecast,
     }
 }

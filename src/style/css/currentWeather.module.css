@@ -1,13 +1,15 @@
 .CurrentWeather {
     display: flex;
     justify-content: space-evenly;
-    background-color: rgb(122, 70, 90);
+    background-color: rgb(251, 173, 137);
     width: 90%;
     height: 300px;
     margin: auto;
     padding: 30px;
     box-sizing: border-box;
     border-radius: 10px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
 }
 
 .CurrentWeatherOverview {
@@ -18,15 +20,49 @@
 
 .CurrentWeatherOverview div:first-of-type {
     position: absolute;
-    top: 12%;
-    right: 10%;
-    font-size: 5em;
+    top: 0;
+    left: 0;
+    font-size: 1.7em;
 }
 
 .CurrentWeatherOverview div:nth-of-type(2) {
     position: absolute;
-    top: 60%;
-    right: 13%;
+    top: 40px;
+    left: 0;
+    font-size: 1.5em;
+    color: rgb(253, 108, 15);
+}
+
+.CurrentWeatherOverview div:nth-of-type(3) {
+    position: absolute;
+    top: 20px;
+    right: 14%;
+    font-size: 7.2em;
+}
+
+.CurrentWeatherOverview div:nth-of-type(4) {
+    position: absolute;
+    right: 22%;
+    top: 58%;
+    font-size: 1.5em;
+}
+
+.CTemp {
+    cursor: pointer;
+}
+
+.FTemp {
+    cursor: pointer;
+}
+
+.selected {
+    color: rgb(253, 108, 15);
+}
+
+.CurrentWeatherOverview div:last-of-type {
+    position: absolute;
+    top: 76%;
+    right: 22%;
     font-size: 1.5em;
     text-transform: uppercase;
 }
@@ -40,9 +76,13 @@
     place-items: center;
 }
 
+.CurrentWeatherDetail span:first-of-type {
+    font-size: 1.2em;
+}
+
 .CurrentWeatherDetail span:nth-of-type(2) {
     display: block;
     margin-top: 10px;
-    font-size: 1.4em;
+    font-size: 1.5em;
     font-size: bold;
 }
