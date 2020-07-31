@@ -4,8 +4,7 @@ import classes from '../style/css/currentWeather.module.css'
 import Aux from '../HOC/Aux'
 import timeFormat from '../shared/timeConverter'
 import { kTOc, kTOF } from '../shared/tempConverter'
-
-// import moment from 'moment-timezone'
+import img from '../assets/animated/rainy-7.svg'
 
 class currentWeather extends Component {
     state = {
@@ -53,20 +52,26 @@ class currentWeather extends Component {
         const currentWeatherCondition = (
             <div className={classes.CurrentWeather}>
                 <div className={classes.CurrentWeatherOverview}>
-                    <div>{city}</div>
-                    <div>{timeFormat(currentTime, timezone, 'MMMM Do YYYY h:mm a')}</div>
-                    <div>{temperature}&deg;</div>
-                    <div>
-                        <span onClick={this.onFtoCHandler} className={CTemp.join(' ')}>
-                            C
-                        </span>{' '}
-                        |{' '}
-                        <span onClick={this.onCtoFHandler} className={FTemp.join(' ')}>
-                            F
-                        </span>
-                    </div>
-                    <div>{weather}</div>
+                    <section>
+                        <div className={classes.city}>{city}</div>
+                        <div className={classes.time}>{timeFormat(currentTime, timezone, 'MMMM Do YYYY h:mm a')}</div>
+                    </section>
+                    <img src={img} alt="icon" />
+                    <section>
+                        <div className={classes.temp}>{temperature}&deg;</div>
+                        <div className={classes.tempType}>
+                            <span onClick={this.onFtoCHandler} className={CTemp.join(' ')}>
+                                C
+                            </span>{' '}
+                            |{' '}
+                            <span onClick={this.onCtoFHandler} className={FTemp.join(' ')}>
+                                F
+                            </span>
+                        </div>
+                        <div className={classes.description}>{weather}</div>
+                    </section>
                 </div>
+
                 <div className={classes.CurrentWeatherDetail}>
                     <div>
                         <span>sunrise</span>

@@ -4,7 +4,7 @@
     background-color: rgb(251, 173, 137);
     width: 90%;
     height: 300px;
-    margin: auto;
+    margin: 80px auto;
     padding: 30px;
     box-sizing: border-box;
     border-radius: 10px;
@@ -13,38 +13,56 @@
 }
 
 .CurrentWeatherOverview {
+    display: flex;
+    justify-content: space-between;
     color: white;
     position: relative;
     width: 50%;
 }
 
-.CurrentWeatherOverview div:first-of-type {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 1.7em;
+.CurrentWeatherOverview section:first-of-type {
+    width: 30%;
+    word-wrap: break-word;
+    text-align: left;
 }
 
-.CurrentWeatherOverview div:nth-of-type(2) {
-    position: absolute;
-    top: 40px;
-    left: 0;
+.CurrentWeatherOverview section .city {
+    font-size: 1.6em;
+}
+
+.CurrentWeatherOverview section .time {
     font-size: 1.5em;
     color: rgb(253, 108, 15);
 }
 
-.CurrentWeatherOverview div:nth-of-type(3) {
-    position: absolute;
-    top: 20px;
-    right: 14%;
-    font-size: 7.2em;
+.CurrentWeatherOverview img {
+    width: 220px;
+    height: 220px;
 }
 
-.CurrentWeatherOverview div:nth-of-type(4) {
+.CurrentWeatherOverview section:nth-of-type(2) {
+    position: relative;
+    text-align: right;
+    width: 30%;
+}
+
+.CurrentWeatherOverview section .temp {
+    font-size: 7em;
+}
+
+.CurrentWeatherOverview section .tempType {
     position: absolute;
-    right: 22%;
-    top: 58%;
-    font-size: 1.5em;
+    top: 50%;
+    right: 20px;
+    font-size: 1.4em;
+}
+
+.CurrentWeatherOverview section .description {
+    position: absolute;
+    top: 70%;
+    right: 20px;
+    font-size: 1.6em;
+    text-transform: uppercase;
 }
 
 .CTemp {
@@ -57,14 +75,6 @@
 
 .selected {
     color: rgb(253, 108, 15);
-}
-
-.CurrentWeatherOverview div:last-of-type {
-    position: absolute;
-    top: 76%;
-    right: 22%;
-    font-size: 1.5em;
-    text-transform: uppercase;
 }
 
 .CurrentWeatherDetail {
@@ -85,4 +95,177 @@
     margin-top: 10px;
     font-size: 1.5em;
     font-size: bold;
+}
+
+@media (max-width: 1200px) {
+    .CurrentWeatherOverview section .city {
+        font-size: 1.3em;
+    }
+
+    .CurrentWeatherOverview section .time {
+        font-size: 1.1em;
+    }
+
+    .CurrentWeatherOverview img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .CurrentWeatherOverview section .temp {
+        font-size: 6.5em;
+    }
+
+    .CurrentWeatherOverview section .tempType {
+        font-size: 1.2em;
+    }
+
+    .CurrentWeatherOverview section .description {
+        font-size: 1.4em;
+    }
+
+    .CurrentWeatherDetail span:first-of-type {
+        font-size: 1em;
+    }
+
+    .CurrentWeatherDetail span:nth-of-type(2) {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 1040px) {
+    .CurrentWeather {
+        height: 280px;
+    }
+
+    .CurrentWeatherOverview section .city {
+        font-size: 1.1em;
+    }
+
+    .CurrentWeatherOverview section .time {
+        font-size: 0.9em;
+    }
+
+    .CurrentWeatherOverview img {
+        width: 170px;
+        height: 170px;
+    }
+
+    .CurrentWeatherOverview section .temp {
+        font-size: 6.3em;
+    }
+
+    .CurrentWeatherOverview section .tempType {
+        font-size: 0.9em;
+    }
+
+    .CurrentWeatherOverview section .description {
+        font-size: 1.1em;
+    }
+
+    .CurrentWeatherDetail span:first-of-type {
+        font-size: 0.9em;
+    }
+
+    .CurrentWeatherDetail span:nth-of-type(2) {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 900px) {
+    .CurrentWeather {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width: 80%;
+        height: 500px;
+    }
+    .CurrentWeatherOverview {
+        width: 100%;
+        height: 50%;
+        justify-content: center;
+        flex-basis: 1;
+    }
+
+    .CurrentWeatherDetail {
+        width: 100%;
+        height: 50%;
+    }
+
+    .CurrentWeatherOverview section .city {
+        font-size: 1.2em;
+    }
+
+    .CurrentWeatherOverview section .time {
+        font-size: 1em;
+    }
+
+    .CurrentWeatherOverview section .tempType {
+        top: 50%;
+        right: 20px;
+        font-size: 1em;
+    }
+
+    .CurrentWeatherOverview section .description {
+        top: 70%;
+        right: 20px;
+        font-size: 1.2em;
+    }
+
+    .CurrentWeatherDetail span:first-of-type {
+        font-size: 1.1em;
+    }
+
+    .CurrentWeatherDetail span:nth-of-type(2) {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 750px) {
+    .CurrentWeatherOverview {
+        flex-direction: column;
+        align-items: center;
+        height: 60%;
+    }
+
+    .CurrentWeatherOverview section:first-of-type {
+        width: 100%;
+    }
+
+    .CurrentWeatherOverview img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .CurrentWeatherOverview section:nth-of-type(2) {
+        text-align: center;
+        width: 40%;
+        height: auto;
+    }
+
+    .CurrentWeatherOverview section .temp {
+        font-size: 2.5em;
+    }
+
+    .CurrentWeatherOverview section .tempType {
+        position: static;
+    }
+
+    .CurrentWeatherOverview section .description {
+        position: static;
+        white-space: nowrap;
+        font-size: 1em;
+    }
+
+    .CurrentWeatherDetail {
+        height: 40%;
+    }
+
+    .CurrentWeatherDetail span:first-of-type {
+        font-size: 0.6em;
+    }
+
+    .CurrentWeatherDetail span:nth-of-type(2) {
+        font-size: 0.8em;
+    }
 }

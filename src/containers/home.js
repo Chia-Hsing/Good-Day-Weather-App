@@ -7,12 +7,11 @@ import Input from '../components/input'
 import * as actions from '../store/actions/forecast'
 import { OpenWeatherAPIKey, googleGeoAPIKey } from '../APIKey.js'
 import CurrentWeather from '../components/currentWeather'
+import DailyWeather from '../components/dailyWeather'
 
 class Home extends Component {
     componentDidMount() {
-        setTimeout(() => {
-            this.props.onSearchCurrentLocation(OpenWeatherAPIKey, googleGeoAPIKey)
-        }, 1000)
+        this.props.onSearchCurrentLocation(OpenWeatherAPIKey, googleGeoAPIKey)
     }
 
     onKeyDownHandler = (e) => {
@@ -39,6 +38,7 @@ class Home extends Component {
                 <Title />
                 <Input KeyDown={(e) => this.onKeyDownHandler(e)} />
                 {curWeather}
+                <DailyWeather />
             </Aux>
         )
     }
