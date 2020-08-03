@@ -6,39 +6,44 @@ import Title from '../components/title'
 import Input from '../components/input'
 import * as actions from '../store/actions/forecast'
 import { OpenWeatherAPIKey, googleGeoAPIKey } from '../APIKey.js'
-import CurrentWeather from '../components/currentWeather'
-import DailyWeather from '../components/dailyWeather'
+import CurrentWeatherWrap from '../components/currentWeather/currentWeatherWrap'
+import DailyWeatherWarp from '../components/dailyWeather/dailyWeatherWrap'
+import HourlyWeatherWrap from '../components/hourlyWeather/hourlyWeatherWrap'
 
 class Home extends Component {
     componentDidMount() {
-        this.props.onSearchCurrentLocation(OpenWeatherAPIKey, googleGeoAPIKey)
+        this.props.onCurrentLocationSearch(OpenWeatherAPIKey, googleGeoAPIKey)
     }
 
     onKeyDownHandler = (e) => {
         if (e.keyCode === 13) {
             const location = e.target.value
-            this.props.onSearchCity(location, OpenWeatherAPIKey, googleGeoAPIKey)
+            this.props.onCitySearch(location, OpenWeatherAPIKey, googleGeoAPIKey)
         }
     }
 
     render() {
-        let curWeather = null
+        let currentWeatherCondition = null
         if (this.props.currentWeather) {
-            curWeather = (
-                <CurrentWeather
-                    cityShown={this.props.position}
-                    currentWeather={this.props.currentWeather}
-                    timezone={this.props.timezone}
-                />
-            )
+            currentWeatherCondition = <CurrentWeatherWrap />
         }
 
         return (
             <Aux>
                 <Title />
                 <Input KeyDown={(e) => this.onKeyDownHandler(e)} />
-                {curWeather}
-                <DailyWeather />
+                {currentWeatherCondition}
+                <HourlyWeatherWrap
+                    index={this.props.index}
+                    hourlyWeather={this.props.hourlyWeather}
+                    timezone={this.props.timezone}
+                />
+                <DailyWeatherWarp
+                    dailyWeatherData={this.props.dailyWeather}
+                    hourlyWeather={this.props.hourlyWeather}
+                    timezone={this.props.timezone}
+                    temperatureType={this.props.temperatureType}
+                />
             </Aux>
         )
     }
@@ -48,18 +53,20 @@ const mapStateToProps = (state) => {
     return {
         currentWeather: state.currentWeather,
         dailyWeather: state.dailyWeather,
-        position: state.position,
+        hourlyWeather: state.hourlyWeather,
         timezone: state.timezone,
-        showForecast: state.showForecast,
+        temperatureType: state.temperatureType,
+        latLon: state.latLon,
+        index: state.index,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onSearchCity: (location, OWAPIKey, GoogleAPIKey) =>
-            dispatch(actions.searchCity(location, OWAPIKey, GoogleAPIKey)),
-        onSearchCurrentLocation: (OWAPIKey, GoogleAPIKey) =>
-            dispatch(actions.searchCurrentLocation(OWAPIKey, GoogleAPIKey)),
+        onCitySearch: (location, OWAPIKey, GoogleAPIKey) =>
+            dispatch(actions.citySearch(location, OWAPIKey, GoogleAPIKey)),
+        onCurrentLocationSearch: (OWAPIKey, GoogleAPIKey) =>
+            dispatch(actions.currentLocationSearch(OWAPIKey, GoogleAPIKey)),
     }
 }
 

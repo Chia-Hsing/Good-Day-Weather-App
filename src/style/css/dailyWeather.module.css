@@ -1,5 +1,40 @@
 .DailyWeather {
-    width: 90%;
-    width: 150px;
+    width: 19%;
     background-color: rgb(251, 173, 137);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 5px;
+    box-sizing: border-box;
+    color: white;
+    box-shadow: 5px 6px 4px 1px rgba(31, 38, 43, 0.473);
+}
+
+.DailyWeather > div {
+    font-size: 1.2em;
+}
+
+.DailyWeather img {
+    width: 50px;
+    height: 50px;
+}
+
+.DailyWeather p {
+    margin: 0;
+}
+
+.DailyWeather section:first-of-type {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 5px;
+}
+
+.DailyWeather section:first-of-type div {
+    color: rgb(205, 225, 215);
+    font-size: 1.5em;
+}
+
+.DailyWeather section:last-of-type {
+    display: flex;
+    justify-content: space-evenly;
 }
