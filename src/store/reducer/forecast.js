@@ -1,6 +1,8 @@
 import * as actionTypes from '../actions/actionTypes'
 import { updateObj } from '../../shared/utility'
 
+import timeFormat from '../../shared/timeConverter'
+
 const initialState = {
     currentWeather: null,
     dailyWeather: [],
@@ -10,7 +12,7 @@ const initialState = {
     latLon: {},
     error: '',
     temperatureType: true,
-    index: {},
+    index: { todayEnd: null, start: null, end: null },
 }
 
 const fetchForecastSuccess = (state, action) => {
@@ -68,7 +70,25 @@ const switchTempTypeCtoF = (state, action) => {
 }
 
 const fetchHourlyForecastSuccess = (state, action) => {
-    return updateObj(state, { hourlyWeather: action.content.data.list })
+    const hourlyWeatherData = [...action.content.data.list]
+
+    const timeArray = []
+    hourlyWeatherData.slice(0, 8).map((item) => {
+        const time = timeFormat(item.dt, state.timezone, 'H')
+        return timeArray.push(Number(time))
+    })
+
+    console.log(timeArray, hourlyWeatherData, state.timezone)
+    let todayEnd = null
+    if (timeArray.indexOf(0) !== -1) {
+        todayEnd = timeArray.indexOf(23)
+    } else if (timeArray.indexOf(22) !== -1) {
+        todayEnd = timeArray.indexOf(22)
+    } else {
+        todayEnd = timeArray.indexOf(23)
+    }
+
+    return updateObj(state, { hourlyWeather: hourlyWeatherData, index: { todayEnd: todayEnd + 1 } })
 }
 
 const fetchHourlyForecastFailed = (state, action) => {
@@ -80,8 +100,17 @@ const fetchHourlyForecastFailed = (state, action) => {
 const getIndex = (state, action) => {
     return updateObj(state, {
         index: {
+            ...state.index,
             start: action.index[0],
             end: action.index[1],
+        },
+    })
+}
+
+const todayHourlyWeatherInit = (state, action) => {
+    return updateObj(state, {
+        index: {
+            todayEnd: action.index,
         },
     })
 }
@@ -103,6 +132,8 @@ const reducer = (state = initialState, action) => {
             return fetchHourlyForecastFailed(state, action)
         case actionTypes.GET_INDEX:
             return getIndex(state, action)
+        case actionTypes.TODAY_HOURLY_WEATHER_INIT:
+            return todayHourlyWeatherInit(state, action)
     }
     return state
 }

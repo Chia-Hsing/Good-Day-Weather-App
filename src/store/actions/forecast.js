@@ -105,13 +105,12 @@ export const citySearch = (location, OWAPIKey, GoogleAPIKey) => {
 }
 
 export const currentLocationHourlyWeatherSearch = (OWAPIKey, latitude, longitude) => {
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
         try {
             const currentLocationDailyWeatherData = await axios.get(
                 `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${OWAPIKey}`
             )
             dispatch(fetchHourlyForecastSuccess(currentLocationDailyWeatherData))
-            console.log(currentLocationDailyWeatherData)
         } catch (error) {
             dispatch(fetchHourlyForecastFailed(error))
         }
@@ -122,5 +121,12 @@ export const getIndex = (start, end) => {
     return {
         type: actionTypes.GET_INDEX,
         index: [start, end],
+    }
+}
+
+export const todayHourlyWeatherInit = (todayEnd) => {
+    return {
+        type: actionTypes.TODAY_HOURLY_WEATHER_INIT,
+        index: todayEnd,
     }
 }

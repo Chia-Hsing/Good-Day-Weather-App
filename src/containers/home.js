@@ -19,6 +19,11 @@ class Home extends Component {
         if (e.keyCode === 13) {
             const location = e.target.value
             this.props.onCitySearch(location, OpenWeatherAPIKey, googleGeoAPIKey)
+            this.props.onCurrentLocationHourlyWeatherSearch(
+                OpenWeatherAPIKey,
+                this.props.latLon.lat,
+                this.props.latLon.lon
+            )
         }
     }
 
@@ -38,12 +43,7 @@ class Home extends Component {
                     hourlyWeather={this.props.hourlyWeather}
                     timezone={this.props.timezone}
                 />
-                <DailyWeatherWarp
-                    dailyWeatherData={this.props.dailyWeather}
-                    hourlyWeather={this.props.hourlyWeather}
-                    timezone={this.props.timezone}
-                    temperatureType={this.props.temperatureType}
-                />
+                <DailyWeatherWarp />
             </Aux>
         )
     }
@@ -52,12 +52,10 @@ class Home extends Component {
 const mapStateToProps = (state) => {
     return {
         currentWeather: state.currentWeather,
-        dailyWeather: state.dailyWeather,
         hourlyWeather: state.hourlyWeather,
         timezone: state.timezone,
-        temperatureType: state.temperatureType,
-        latLon: state.latLon,
         index: state.index,
+        latLon: state.latLon,
     }
 }
 
@@ -67,6 +65,8 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(actions.citySearch(location, OWAPIKey, GoogleAPIKey)),
         onCurrentLocationSearch: (OWAPIKey, GoogleAPIKey) =>
             dispatch(actions.currentLocationSearch(OWAPIKey, GoogleAPIKey)),
+        onCurrentLocationHourlyWeatherSearch: (OWAPIKey, latitude, longitude) =>
+            dispatch(actions.currentLocationHourlyWeatherSearch(OWAPIKey, latitude, longitude)),
     }
 }
 
