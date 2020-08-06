@@ -1,8 +1,6 @@
 import * as actionTypes from '../actions/actionTypes'
 import { updateObj } from '../../shared/utility'
 
-import timeFormat from '../../shared/timeConverter'
-
 const initialState = {
     currentWeather: null,
     dailyWeather: [],
@@ -26,7 +24,7 @@ const fetchForecastSuccess = (state, action) => {
         feels_like,
         weather: [{ description: weatherDescription }],
         weather: [{ icon: weatherIcon }],
-    } = action.content.current
+    } = action.weatherForecastData.current
 
     return updateObj(state, {
         currentWeather: {
@@ -40,12 +38,13 @@ const fetchForecastSuccess = (state, action) => {
             weatherDescription,
             weatherIcon,
         },
-        dailyWeather: action.content.daily,
+        dailyWeather: action.weatherForecastData.daily,
+        hourlyWeather: action.currentLocationDailyWeatherData.list,
         latLon: {
             lat: action.lat,
             lon: action.lon,
         },
-        timezone: action.content.timezone,
+        timezone: action.weatherForecastData.timezone,
         position: action.position,
         error: false,
     })
@@ -69,31 +68,9 @@ const switchTempTypeCtoF = (state, action) => {
     })
 }
 
-const fetchHourlyForecastSuccess = (state, action) => {
-    const hourlyWeatherData = [...action.content.data.list]
-
-    const timeArray = []
-    hourlyWeatherData.slice(0, 8).map((item) => {
-        const time = timeFormat(item.dt, state.timezone, 'H')
-        return timeArray.push(Number(time))
-    })
-
-    console.log(timeArray, hourlyWeatherData, state.timezone)
-    let todayEnd = null
-    if (timeArray.indexOf(0) !== -1) {
-        todayEnd = timeArray.indexOf(23)
-    } else if (timeArray.indexOf(22) !== -1) {
-        todayEnd = timeArray.indexOf(22)
-    } else {
-        todayEnd = timeArray.indexOf(23)
-    }
-
-    return updateObj(state, { hourlyWeather: hourlyWeatherData, index: { todayEnd: todayEnd + 1 } })
-}
-
-const fetchHourlyForecastFailed = (state, action) => {
+const setTodayEndIndex = (state, action) => {
     return updateObj(state, {
-        error: action.error,
+        index: { todayEnd: action.todayEnd },
     })
 }
 
@@ -103,14 +80,6 @@ const getIndex = (state, action) => {
             ...state.index,
             start: action.index[0],
             end: action.index[1],
-        },
-    })
-}
-
-const todayHourlyWeatherInit = (state, action) => {
-    return updateObj(state, {
-        index: {
-            todayEnd: action.index,
         },
     })
 }
@@ -126,14 +95,10 @@ const reducer = (state = initialState, action) => {
             return switchTempTypeFtoC(state, action)
         case actionTypes.SWITCH_TEMP_TYPE_C_TO_F:
             return switchTempTypeCtoF(state, action)
-        case actionTypes.FETCH_HOURLY_FORECAST_SUCCESS:
-            return fetchHourlyForecastSuccess(state, action)
-        case actionTypes.FETCH_HOURLY_FORECAST_FAILED:
-            return fetchHourlyForecastFailed(state, action)
+        case actionTypes.SET_TODAY_END_INDEX:
+            return setTodayEndIndex(state, action)
         case actionTypes.GET_INDEX:
             return getIndex(state, action)
-        case actionTypes.TODAY_HOURLY_WEATHER_INIT:
-            return todayHourlyWeatherInit(state, action)
     }
     return state
 }

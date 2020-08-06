@@ -2,10 +2,11 @@
 import * as actionTypes from './actionTypes'
 import axios from 'axios'
 
-export const fetchForecastSuccess = (data, position, lat, lon) => {
+export const fetchForecastSuccess = (weatherForecastData, currentLocationDailyWeatherData, position, lat, lon) => {
     return {
         type: actionTypes.FETCH_FORECAST_SUCCESS,
-        content: data,
+        weatherForecastData: weatherForecastData,
+        currentLocationDailyWeatherData: currentLocationDailyWeatherData,
         position: position,
         lat: lat,
         lon: lon,
@@ -31,20 +32,6 @@ export const switchTempTypeCtoF = () => {
     }
 }
 
-export const fetchHourlyForecastSuccess = (data) => {
-    return {
-        type: actionTypes.FETCH_HOURLY_FORECAST_SUCCESS,
-        content: data,
-    }
-}
-
-export const fetchHourlyForecastFailed = (error) => {
-    return {
-        type: actionTypes.FETCH_HOURLY_FORECAST_FAILED,
-        error: error.message,
-    }
-}
-
 //* global variables
 
 export const currentLocationSearch = (OWAPIKey, GoogleAPIKey) => {
@@ -64,7 +51,20 @@ export const currentLocationSearch = (OWAPIKey, GoogleAPIKey) => {
                     results: [{ formatted_address: position }],
                 },
             } = currentLocation
-            dispatch(fetchForecastSuccess(weatherForecastData.data, position, currentLatitude, currentLongitude))
+
+            const currentLocationDailyWeatherData = await axios.get(
+                `http://api.openweathermap.org/data/2.5/forecast?lat=${currentLatitude}&lon=${currentLongitude}&appid=${OWAPIKey}`
+            )
+
+            dispatch(
+                fetchForecastSuccess(
+                    weatherForecastData.data,
+                    currentLocationDailyWeatherData.data,
+                    position,
+                    currentLatitude,
+                    currentLongitude
+                )
+            )
         } catch (error) {
             dispatch(fetchForecastFailed(error))
         }
@@ -72,7 +72,7 @@ export const currentLocationSearch = (OWAPIKey, GoogleAPIKey) => {
 }
 
 export const citySearch = (location, OWAPIKey, GoogleAPIKey) => {
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
         try {
             if (location) {
                 const locationData = await axios.get(
@@ -95,7 +95,20 @@ export const citySearch = (location, OWAPIKey, GoogleAPIKey) => {
                     const weatherForecastData = await axios.get(
                         `http://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${OWAPIKey}`
                     )
-                    dispatch(fetchForecastSuccess(weatherForecastData.data, position, latitude, longitude))
+
+                    const currentLocationDailyWeatherData = await axios.get(
+                        `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${OWAPIKey}`
+                    )
+
+                    dispatch(
+                        fetchForecastSuccess(
+                            weatherForecastData.data,
+                            currentLocationDailyWeatherData.data,
+                            position,
+                            latitude,
+                            longitude
+                        )
+                    )
                 }
             }
         } catch (error) {
@@ -104,16 +117,10 @@ export const citySearch = (location, OWAPIKey, GoogleAPIKey) => {
     }
 }
 
-export const currentLocationHourlyWeatherSearch = (OWAPIKey, latitude, longitude) => {
-    return async (dispatch, getState) => {
-        try {
-            const currentLocationDailyWeatherData = await axios.get(
-                `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${OWAPIKey}`
-            )
-            dispatch(fetchHourlyForecastSuccess(currentLocationDailyWeatherData))
-        } catch (error) {
-            dispatch(fetchHourlyForecastFailed(error))
-        }
+export const setTodayEndIndex = (todayEnd) => {
+    return {
+        type: actionTypes.SET_TODAY_END_INDEX,
+        todayEnd: todayEnd,
     }
 }
 
@@ -121,12 +128,5 @@ export const getIndex = (start, end) => {
     return {
         type: actionTypes.GET_INDEX,
         index: [start, end],
-    }
-}
-
-export const todayHourlyWeatherInit = (todayEnd) => {
-    return {
-        type: actionTypes.TODAY_HOURLY_WEATHER_INIT,
-        index: todayEnd,
     }
 }
