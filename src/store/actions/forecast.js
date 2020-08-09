@@ -78,38 +78,38 @@ export const citySearch = (location, OWAPIKey, GoogleAPIKey) => {
                 const locationData = await axios.get(
                     `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&result_type=political&key=${GoogleAPIKey}`
                 )
-                if (locationData.data.results.length > 0) {
-                    const {
-                        data: {
-                            results: [
-                                {
-                                    geometry: {
-                                        location: { lat: latitude, lng: longitude },
-                                    },
-                                    formatted_address: position,
+                // if (locationData.data.results.length > 0) {
+                const {
+                    data: {
+                        results: [
+                            {
+                                geometry: {
+                                    location: { lat: latitude, lng: longitude },
                                 },
-                            ],
-                        },
-                    } = locationData
+                                formatted_address: position,
+                            },
+                        ],
+                    },
+                } = locationData
 
-                    const weatherForecastData = await axios.get(
-                        `http://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${OWAPIKey}`
-                    )
+                const weatherForecastData = await axios.get(
+                    `http://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${OWAPIKey}`
+                )
 
-                    const currentLocationDailyWeatherData = await axios.get(
-                        `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${OWAPIKey}`
-                    )
+                const currentLocationDailyWeatherData = await axios.get(
+                    `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${OWAPIKey}`
+                )
 
-                    dispatch(
-                        fetchForecastSuccess(
-                            weatherForecastData.data,
-                            currentLocationDailyWeatherData.data,
-                            position,
-                            latitude,
-                            longitude
-                        )
+                dispatch(
+                    fetchForecastSuccess(
+                        weatherForecastData.data,
+                        currentLocationDailyWeatherData.data,
+                        position,
+                        latitude,
+                        longitude
                     )
-                }
+                )
+                // }
             }
         } catch (error) {
             dispatch(fetchForecastFailed(error))

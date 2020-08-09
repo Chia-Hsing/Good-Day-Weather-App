@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Route, Redirect } from 'react-router-dom'
 
 import Aux from '../HOC/Aux'
 import Title from '../components/title'
@@ -9,10 +10,16 @@ import { OpenWeatherAPIKey, googleGeoAPIKey } from '../APIKey.js'
 import CurrentWeatherWrap from '../components/currentWeather/currentWeatherWrap'
 import DailyWeatherWrap from '../components/dailyWeather/dailyWeatherWrap'
 import HourlyWeatherWrap from '../components/hourlyWeather/hourlyWeatherWrap'
+import ErrorBoundary from './ErrorBoundary'
+import ErrorInfo from '../components/errorInfo'
+import classes from '../style/css/home.module.css'
+import Spinner from '../components/spinner'
 
 class Home extends Component {
     componentDidMount() {
-        this.props.onCurrentLocationSearch(OpenWeatherAPIKey, googleGeoAPIKey)
+        setTimeout(() => {
+            this.props.onCurrentLocationSearch(OpenWeatherAPIKey, googleGeoAPIKey)
+        }, 1000)
     }
 
     onKeyDownHandler = (e) => {
@@ -24,9 +31,18 @@ class Home extends Component {
 
     render() {
         let weatherForecast = null
-        if (this.props.currentWeather) {
+
+        let redirectToError = this.props.error ? <Redirect to="/error" /> : null
+        let router = <Route path="/error" component={ErrorInfo} />
+
+        let homeClass = [classes.Home]
+
+        if (this.props.currentWeather && this.props.error === null) {
+            homeClass.push(classes.changed)
+
             weatherForecast = (
                 <Aux>
+                    <Redirect to="/" />
                     <CurrentWeatherWrap
                         currentWeather={this.props.currentWeather}
                         timezone={this.props.timezone}
@@ -56,9 +72,20 @@ class Home extends Component {
 
         return (
             <Aux>
-                <Title />
-                <Input KeyDown={(e) => this.onKeyDownHandler(e)} />
-                {weatherForecast}
+                <ErrorBoundary>
+                    <Title />
+                    {this.props.currentWeather ? null :<Spinner />}
+                    <Input
+                        KeyDown={(e) => this.onKeyDownHandler(e)}
+                        currentWeather={this.props.currentWeather}
+                        error={this.props.error}
+                    />
+                    <div className={homeClass.join(' ')}>
+                        {redirectToError}
+                        {router}
+                        {weatherForecast}
+                    </div>
+                </ErrorBoundary>
             </Aux>
         )
     }
@@ -74,6 +101,7 @@ const mapStateToProps = (state) => {
         latLon: state.latLon,
         position: state.position,
         temperatureType: state.temperatureType,
+        error: state.error,
     }
 }
 

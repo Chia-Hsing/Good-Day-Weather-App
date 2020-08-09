@@ -1,0 +1,19 @@
+.DailyWeatherWrap {
+    width: 90%;
+    height: 180px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto 40px;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+    .DailyWeatherWrap {
+        height: auto;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+    }
+}

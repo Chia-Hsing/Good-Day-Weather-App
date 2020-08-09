@@ -1,0 +1,13 @@
+.Home {
+    opacity: 0;
+    transition: all 0.5s ease-out;
+    width: 100%;
+    height: auto;
+    transform: translateY(100px);
+    transition-delay: 1s;
+}
+
+.changed {
+    opacity: 1;
+    transform: translateY(0);
+}

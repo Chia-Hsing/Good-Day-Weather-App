@@ -1,14 +1,20 @@
 import React from 'react'
+
 import classes from '../style/css/input.module.css'
 
 const input = (props) => {
+    let inputClass = [classes.Input]
+    if (props.currentWeather && props.error === null) {
+        inputClass.push(classes.changed)
+    }
     return (
         <div>
             <input
                 onKeyDown={props.KeyDown}
-                className={classes.Input}
+                className={inputClass.join(' ')}
                 type="text"
                 placeholder="city weather forecast"
+                onChange={props.changed}
             />
         </div>
     )

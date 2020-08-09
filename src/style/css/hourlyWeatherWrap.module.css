@@ -1,0 +1,23 @@
+.HourlyWeatherWrap {
+    width: 90%;
+    height: 170px;
+    display: grid;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 auto 10px;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgb(251, 173, 137);
+    box-shadow: 5px 6px 4px 1px rgba(31, 38, 43, 0.473);
+}
+
+@media (max-width: 900px) {
+    .HourlyWeatherWrap {
+        width: 80%;
+        height: 170px;
+        white-space: nowrap;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+}

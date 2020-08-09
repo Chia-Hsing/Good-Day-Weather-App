@@ -8,7 +8,7 @@ const initialState = {
     timezone: '',
     position: null,
     latLon: {},
-    error: '',
+    error: null,
     temperatureType: true,
     index: { todayEnd: null, start: null, end: null },
 }
@@ -46,7 +46,7 @@ const fetchForecastSuccess = (state, action) => {
         },
         timezone: action.weatherForecastData.timezone,
         position: action.position,
-        error: false,
+        error: null,
     })
 }
 

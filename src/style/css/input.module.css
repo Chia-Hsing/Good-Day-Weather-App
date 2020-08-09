@@ -12,7 +12,9 @@
     padding: 20px;
     box-shadow: 5px 6px 4px 1px rgba(31, 38, 43, 0.473);
     font-family: 'Rajdhani', sans-serif;
-    transition: all 0.3s ease-in;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.5s ease-in;
 }
 
 .Input::placeholder {
@@ -22,6 +24,11 @@
 .Input:focus {
     outline: none;
     box-shadow: 7px 10px 7px 2px rgba(31, 38, 43, 0.473);
+}
+
+.changed {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media (max-width: 1000px) {
