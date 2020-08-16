@@ -14,4 +14,6 @@
 
 # Current progress
 
-# 
+## Live Demo
+
+[Live Demo](https://chia-hsing.github.io/Good-Day-Weather-App-react/)
