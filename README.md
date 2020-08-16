@@ -7,7 +7,7 @@
 # APIs
 
 ## APIs used
-  - Weather forecast data are fetched from [Open Weather Map Api]（https://openweathermap.org/api）
+  - Weather forecast data are fetched from [Open Weather Map Api](https://openweathermap.org/api)
     - current weather and daily weather are fetched from [One Call API](https://openweathermap.org/api/one-call-api)
     - hourly weather is fetched from [5 Day / 3 Hour Forecast](https://openweathermap.org/forecast5)
   - Client's current coordinates are fetched by [Google Geolocation API](https://developers.google.com/maps/documentation/geolocation/overview)
