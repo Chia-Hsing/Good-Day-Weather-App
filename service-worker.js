@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Good-Day-Weather-App-react/precache-manifest.d0329f29b4dd034a0e1f9b24ad399cc1.js"
+  "/Good-Day-Weather-App-react/precache-manifest.e21a7705e73daca8ea4a513b258bc3fa.js"
 );
 
 self.addEventListener('message', (event) => {
