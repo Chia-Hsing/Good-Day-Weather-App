@@ -6,7 +6,7 @@ const dailyWeather = (props) => {
     return (
         <div className={classes.DailyWeather} onClick={props.clickTarget}>
             <div>{props.time}</div>
-            <img src={`http://openweathermap.org/img/wn/${props.weatherIcon}@4x.png`} alt="icon" />
+            <img src={`https://openweathermap.org/img/wn/${props.weatherIcon}@4x.png`} alt="icon" />
             <p>{props.weatherDescription}</p>
             <section>
                 <div>{props.minTemp}&deg;</div>

@@ -19,7 +19,7 @@ const currentWeather = (props) => {
                     <div className={classes.city}>{props.cityShown}</div>
                     <div className={classes.time}>{props.timeShown}</div>
                 </section>
-                <img src={`http://openweathermap.org/img/wn/${props.weatherIcon}@4x.png`} alt="icon" />
+                <img src={`https://openweathermap.org/img/wn/${props.weatherIcon}@4x.png`} alt="icon" />
                 <section>
                     <div className={classes.temp}>{props.temp}&deg;</div>
                     <div className={classes.tempType}>

@@ -41,7 +41,7 @@ export const currentLocationSearch = (OWAPIKey, GoogleAPIKey) => {
             const currentLatitude = latLon.data.location.lat
             const currentLongitude = latLon.data.location.lng
             const weatherForecastData = await axios.get(
-                `http://api.openweathermap.org/data/2.5/onecall?lat=${currentLatitude}&lon=${currentLongitude}&appid=${OWAPIKey}`
+                `https://api.openweathermap.org/data/2.5/onecall?lat=${currentLatitude}&lon=${currentLongitude}&appid=${OWAPIKey}`
             )
             const currentLocation = await axios.get(
                 `https://maps.googleapis.com/maps/api/geocode/json?latlng=${currentLatitude},${currentLongitude}&result_type=administrative_area_level_3&key=${GoogleAPIKey}`
@@ -53,7 +53,7 @@ export const currentLocationSearch = (OWAPIKey, GoogleAPIKey) => {
             } = currentLocation
 
             const currentLocationDailyWeatherData = await axios.get(
-                `http://api.openweathermap.org/data/2.5/forecast?lat=${currentLatitude}&lon=${currentLongitude}&appid=${OWAPIKey}`
+                `https://api.openweathermap.org/data/2.5/forecast?lat=${currentLatitude}&lon=${currentLongitude}&appid=${OWAPIKey}`
             )
 
             dispatch(
@@ -93,11 +93,11 @@ export const citySearch = (location, OWAPIKey, GoogleAPIKey) => {
                 } = locationData
 
                 const weatherForecastData = await axios.get(
-                    `http://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${OWAPIKey}`
+                    `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${OWAPIKey}`
                 )
 
                 const currentLocationDailyWeatherData = await axios.get(
-                    `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${OWAPIKey}`
+                    `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${OWAPIKey}`
                 )
 
                 dispatch(
