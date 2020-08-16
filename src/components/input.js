@@ -4,7 +4,7 @@ import classes from '../style/css/input.module.css'
 
 const input = (props) => {
     let inputClass = [classes.Input]
-    if (props.currentWeather && props.error === null) {
+    if (props.currentWeather) {
         inputClass.push(classes.changed)
     }
     return (

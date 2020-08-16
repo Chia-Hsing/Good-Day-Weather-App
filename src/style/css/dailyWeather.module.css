@@ -1,5 +1,6 @@
 .DailyWeather {
     width: 19%;
+    height: 180px;
     background-color: rgb(251, 173, 137);
     font-family: 'Rajdhani', sans-serif;
     font-weight: 600;
@@ -22,6 +23,7 @@
 
 .DailyWeather p {
     margin: 0;
+    font-size: 1em;
 }
 
 .DailyWeather section:first-of-type {

@@ -31,12 +31,12 @@ class Home extends Component {
 
     render() {
         let weatherForecast = null
+        let redirectToError = null
 
-        let redirectToError = this.props.error ? <Redirect to="/error" /> : null
+        redirectToError = this.props.error ? <Redirect to="/error" /> : null
         let router = <Route path="/error" component={ErrorInfo} />
 
         let homeClass = [classes.Home]
-
         if (this.props.currentWeather && this.props.error === null) {
             homeClass.push(classes.changed)
 
@@ -74,17 +74,15 @@ class Home extends Component {
             <Aux>
                 <ErrorBoundary>
                     <Title />
-                    {this.props.currentWeather ? null :<Spinner />}
+                    {this.props.currentWeather ? null : <Spinner />}
                     <Input
                         KeyDown={(e) => this.onKeyDownHandler(e)}
                         currentWeather={this.props.currentWeather}
                         error={this.props.error}
                     />
-                    <div className={homeClass.join(' ')}>
-                        {redirectToError}
-                        {router}
-                        {weatherForecast}
-                    </div>
+                    {redirectToError}
+                    {router}
+                    <div className={homeClass.join(' ')}>{weatherForecast}</div>
                 </ErrorBoundary>
             </Aux>
         )
