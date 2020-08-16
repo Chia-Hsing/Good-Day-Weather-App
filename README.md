@@ -22,4 +22,4 @@
 
 ## Live Demo
 
-[Live Demo](https://chia-hsing.github.io/Good-Day-Weather-App-react/)
+[Good Day Weather App](https://chia-hsing.github.io/Good-Day-Weather-App-react/)
