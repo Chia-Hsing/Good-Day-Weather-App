@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Good-Day-Weather-App-react/static/css/main.21c9b2ed.chunk.css",
+    "main.js": "/Good-Day-Weather-App-react/static/js/main.7f616bdc.chunk.js",
+    "main.js.map": "/Good-Day-Weather-App-react/static/js/main.7f616bdc.chunk.js.map",
+    "runtime-main.js": "/Good-Day-Weather-App-react/static/js/runtime-main.2114ef84.js",
+    "runtime-main.js.map": "/Good-Day-Weather-App-react/static/js/runtime-main.2114ef84.js.map",
+    "static/js/2.249d7ac5.chunk.js": "/Good-Day-Weather-App-react/static/js/2.249d7ac5.chunk.js",
+    "static/js/2.249d7ac5.chunk.js.map": "/Good-Day-Weather-App-react/static/js/2.249d7ac5.chunk.js.map",
+    "index.html": "/Good-Day-Weather-App-react/index.html",
+    "precache-manifest.d0329f29b4dd034a0e1f9b24ad399cc1.js": "/Good-Day-Weather-App-react/precache-manifest.d0329f29b4dd034a0e1f9b24ad399cc1.js",
+    "service-worker.js": "/Good-Day-Weather-App-react/service-worker.js",
+    "static/css/main.21c9b2ed.chunk.css.map": "/Good-Day-Weather-App-react/static/css/main.21c9b2ed.chunk.css.map",
+    "static/js/2.249d7ac5.chunk.js.LICENSE.txt": "/Good-Day-Weather-App-react/static/js/2.249d7ac5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2114ef84.js",
+    "static/js/2.249d7ac5.chunk.js",
+    "static/css/main.21c9b2ed.chunk.css",
+    "static/js/main.7f616bdc.chunk.js"
+  ]
+}
