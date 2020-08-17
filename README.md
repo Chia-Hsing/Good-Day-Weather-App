@@ -1,6 +1,10 @@
 # Good-Day-Weather-App
 
 # Development stack
+- Use __Create-React-App__ as the app build tool.
+- Redux
+- thunk
+- react-router-dom
 
 # External packages
 
