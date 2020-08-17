@@ -27,7 +27,10 @@
   ```
   
   ## Setup
-  `$ cd Good-Day-Weather-App-react`
+  1. 
+  ```
+  $ cd Good-Day-Weather-App-react
+  ```
   2. `$ npm install`
   3. `$ touch .env`
   4.  Store your API Key in .env file and save.
