@@ -27,15 +27,19 @@
   ```
   
   ## Setup
-  1. 
+  1. ```$ cd Good-Day-Weather-App-react
   ```
-  $ cd Good-Day-Weather-App-react
+  2. ```
+  $ npm install
   ```
-  2. `$ npm install`
-  3. `$ touch .env`
+  3. ```
+  $ touch .env
+  ```
   4.  Store your API Key in .env file and save.
-     `REACT_APP_OPEN_WEATHER_API_KEY = 'ff19d157e14f44206656bad4cc1189ab'
-      REACT_APP_GOOGLE_GEO_API_KEY = 'AIzaSyD-h4Aob9JC2TSsgEfhjO_KSIJFGxpQ9mQ'`
+     ```
+     REACT_APP_OPEN_WEATHER_API_KEY = 'ff19d157e14f44206656bad4cc1189ab'
+     REACT_APP_GOOGLE_GEO_API_KEY = 'AIzaSyD-h4Aob9JC2TSsgEfhjO_KSIJFGxpQ9mQ'
+     ```
   
 
 # Clone & install
