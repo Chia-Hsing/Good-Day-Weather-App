@@ -6,7 +6,7 @@ import Aux from '../HOC/Aux'
 import Title from '../components/title'
 import Input from '../components/input'
 import * as actions from '../store/actions/forecast'
-import { OpenWeatherAPIKey, googleGeoAPIKey } from '../APIKey.js'
+// import { OpenWeatherAPIKey, googleGeoAPIKey } from '../APIKey.js'
 import CurrentWeatherWrap from '../components/currentWeather/currentWeatherWrap'
 import DailyWeatherWrap from '../components/dailyWeather/dailyWeatherWrap'
 import HourlyWeatherWrap from '../components/hourlyWeather/hourlyWeatherWrap'
@@ -18,14 +18,21 @@ import Spinner from '../components/spinner'
 class Home extends Component {
     componentDidMount() {
         setTimeout(() => {
-            this.props.onCurrentLocationSearch(OpenWeatherAPIKey, googleGeoAPIKey)
+            this.props.onCurrentLocationSearch(
+                process.env.REACT_APP_OPEN_WEATHER_API_KEY,
+                process.env.REACT_APP_GOOGLE_GEO_API_KEY
+            )
         }, 1000)
     }
 
     onKeyDownHandler = (e) => {
         if (e.keyCode === 13) {
             const location = e.target.value
-            this.props.onCitySearch(location, OpenWeatherAPIKey, googleGeoAPIKey)
+            this.props.onCitySearch(
+                location,
+                process.env.REACT_APP_OPEN_WEATHER_API_KEY,
+                process.env.REACT_APP_GOOGLE_GEO_API_KEY
+            )
         }
     }
 
