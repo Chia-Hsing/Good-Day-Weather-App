@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Good-Day-Weather-App-react/static/css/main.21c9b2ed.chunk.css",
-    "main.js": "/Good-Day-Weather-App-react/static/js/main.494c659c.chunk.js",
-    "main.js.map": "/Good-Day-Weather-App-react/static/js/main.494c659c.chunk.js.map",
+    "main.js": "/Good-Day-Weather-App-react/static/js/main.6f15e52b.chunk.js",
+    "main.js.map": "/Good-Day-Weather-App-react/static/js/main.6f15e52b.chunk.js.map",
     "runtime-main.js": "/Good-Day-Weather-App-react/static/js/runtime-main.2114ef84.js",
     "runtime-main.js.map": "/Good-Day-Weather-App-react/static/js/runtime-main.2114ef84.js.map",
     "static/js/2.249d7ac5.chunk.js": "/Good-Day-Weather-App-react/static/js/2.249d7ac5.chunk.js",
     "static/js/2.249d7ac5.chunk.js.map": "/Good-Day-Weather-App-react/static/js/2.249d7ac5.chunk.js.map",
     "index.html": "/Good-Day-Weather-App-react/index.html",
-    "precache-manifest.8fad10c0ed29e848a69c0a548323051c.js": "/Good-Day-Weather-App-react/precache-manifest.8fad10c0ed29e848a69c0a548323051c.js",
+    "precache-manifest.fbd8105e8fa64858a54315d6d29ea742.js": "/Good-Day-Weather-App-react/precache-manifest.fbd8105e8fa64858a54315d6d29ea742.js",
     "service-worker.js": "/Good-Day-Weather-App-react/service-worker.js",
     "static/css/main.21c9b2ed.chunk.css.map": "/Good-Day-Weather-App-react/static/css/main.21c9b2ed.chunk.css.map",
     "static/js/2.249d7ac5.chunk.js.LICENSE.txt": "/Good-Day-Weather-App-react/static/js/2.249d7ac5.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.2114ef84.js",
     "static/js/2.249d7ac5.chunk.js",
     "static/css/main.21c9b2ed.chunk.css",
-    "static/js/main.494c659c.chunk.js"
+    "static/js/main.6f15e52b.chunk.js"
   ]
 }
