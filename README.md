@@ -22,7 +22,9 @@
 
 # Running
   ## Clone
-  `$ git clone https://github.com/Chia-Hsing/Good-Day-Weather-App-react.git`
+  ```
+  $ git clone https://github.com/Chia-Hsing/Good-Day-Weather-App-react.git
+  ```
   
   ## Setup
   `$ cd Good-Day-Weather-App-react`
