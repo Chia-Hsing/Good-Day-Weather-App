@@ -22,10 +22,10 @@
 
 # Running
   ## Clone
-  - `$ git clone https://github.com/Chia-Hsing/Good-Day-Weather-App-react.git`
+  `$ git clone https://github.com/Chia-Hsing/Good-Day-Weather-App-react.git`
   
   ## Setup
-  1. `$ cd Good-Day-Weather-App-react`
+  `$ cd Good-Day-Weather-App-react`
   2. `$ npm install`
   3. `$ touch .env`
   4.  Store your API Key in .env file and save.
