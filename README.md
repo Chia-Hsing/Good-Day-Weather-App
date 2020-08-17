@@ -27,23 +27,27 @@
   ```
   
   ## Setup
+  - Access the Good-Day-Weather-App-react file.
   ```
   $ cd Good-Day-Weather-App-react
   ```
+  - Install packages.
   ```
   $ npm install
   ```
+  - Create a .env file.
   ```
   $ touch .env
   ```
-  Store your API Key in .env file and save.
+  - Store your API Key in .env file and save.
   ```
   REACT_APP_OPEN_WEATHER_API_KEY = 
   REACT_APP_GOOGLE_GEO_API_KEY = 
   ```
-  
-
-# Clone & install
+  - Then you can view the app locally on http://localhost:3000/Good-Day-Weather-App-react
+  ```
+  $ npm start
+  ```
 
 # Current progress
 
