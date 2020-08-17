@@ -12,13 +12,16 @@
     - hourly weather is fetched from [5 Day / 3 Hour Forecast](https://openweathermap.org/forecast5)
   - Client's current coordinates are fetched by [Google Geolocation API](https://developers.google.com/maps/documentation/geolocation/overview)
   - Location is positioned through [Google Geocoding API](https://developers.google.com/maps/documentation/geocoding/overview) by latitude and longitude.
-## API keys
-  ### Get Google API Key
+## Get API keys
+  ### Google API Key
   1. Sign in your Google account.
   2. Create or select a project on [Google Cloud Platform](https://console.developers.google.com/)
   3. From the menu, click the __API and services__ then click __Credentials__.
   4. Click __Create credentials__.
   5. Click __API key__ then the API key would be showed on the dialog box.
+  ### Open Weather API
+  1. Sign up on [Open Weather](https://home.openweathermap.org/).
+  2. You can find the __API Key__ at the personal page.
 
 # Running
   ## Clone
