@@ -16,9 +16,12 @@
   ### Google API Key
   1. Sign in your Google account.
   2. Create or select a project on [Google Cloud Platform](https://console.developers.google.com/)
-  3. From the menu, click the __API and services__ then click __Credentials__.
-  4. Click __Create credentials__.
-  5. Click __API key__ then the API key would be showed on the dialog box.
+  3. From the menu, click the __APIs and services__ .
+  4. On the APIs and services page, click __ENABLE APIs and services.
+  5. Search out the API you are going to use. (which are Geocoding API and Geolocation API)
+  6. From the menu, click __Credentials__.
+  7. Click __Create credentials__.
+  8. Click __API key__ then the API key would be showed on the dialog box.
   ### Open Weather API
   1. Sign up on [Open Weather](https://home.openweathermap.org/).
   2. You can find the __API Key__ at the personal page.
