@@ -20,8 +20,18 @@
   4. Click __Create credentials__.
   5. Click __API key__ then the API key would be showed on the dialog box.
 
-
 # Running
+  ## Clone
+  - `$ git clone https://github.com/Chia-Hsing/Good-Day-Weather-App-react.git`
+  
+  ## Setup
+  1. `$ cd Good-Day-Weather-App-react`
+  2. `$ npm install`
+  3. `$ touch .env`
+  4.  Store your API Key in .env file and save.
+     `REACT_APP_OPEN_WEATHER_API_KEY = 'ff19d157e14f44206656bad4cc1189ab'
+      REACT_APP_GOOGLE_GEO_API_KEY = 'AIzaSyD-h4Aob9JC2TSsgEfhjO_KSIJFGxpQ9mQ'`
+  
 
 # Clone & install
 
