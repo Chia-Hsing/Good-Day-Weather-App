@@ -21,7 +21,7 @@
   5. Search out the API you are going to use. (which are Geocoding API and Geolocation API)
   6. From the menu, click __Credentials__.
   7. Click __Create credentials__.
-  8. Click __API key__ then the API key would be showed on the dialog box.
+  8. Click __API key__, then the API key would be showed on the dialog box.
   ### Open Weather API
   1. Sign up on [Open Weather](https://home.openweathermap.org/).
   2. You can find the __API Key__ at the personal page.
