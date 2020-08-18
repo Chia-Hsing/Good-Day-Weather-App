@@ -2,7 +2,7 @@
 
 # Development stack
 - Use [Create-React-App](https://create-react-app.dev/) as the app build tool.
-- Use [Redux](https://redux.js.org/) to manage __state__.
+- Use [Redux](https://redux.js.org/) to manage state.
 - Use [redux-thunk](https://github.com/reduxjs/redux-thunk) as a middleware for Redux side effects logic.
 - Use [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom) to navigate between home and error components.
 - Use [moment.js](https://momentjs.com/) to handle the date and time.
