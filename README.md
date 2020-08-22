@@ -63,7 +63,7 @@ $ npm start
 
 ![image](https://github.com/Chia-Hsing/Good-Day-Weather-App-react/blob/master/src/img/1.png)
 
-![image](https://github.com/Chia-Hsing/Good-Day-Weather-App-react/blob/master/src/img/2.png)
+![image](https://github.com/Chia-Hsing/Good-Day-Weather-App-react/blob/master/src/img/GoodDayWeatherApp.png)
 
 # Live Demo
 
