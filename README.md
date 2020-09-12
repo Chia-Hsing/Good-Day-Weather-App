@@ -4,7 +4,7 @@ A weather app built with __React__, which can help you check the weather froecas
 
 # Development stack
 - Use [Create-React-App](https://create-react-app.dev/) as the app build tool.
-- Use [Redux](https://redux.js.org/) to manage state.
+- Use [Redux](https://redux.js.org/) for global state management. .
 - Use [redux-thunk](https://github.com/reduxjs/redux-thunk) as a middleware for Redux side effects logic.
 - Use [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom) to navigate between home and error components.
 - Use [moment.js](https://momentjs.com/) to handle the date and time.
@@ -15,7 +15,7 @@ A weather app built with __React__, which can help you check the weather froecas
   - Weather forecast data are fetched from [Open Weather Map API](https://openweathermap.org/api)
     - current weather and daily weather are fetched from [One Call API](https://openweathermap.org/api/one-call-api)
     - hourly weather is fetched from [5 Day / 3 Hour Forecast](https://openweathermap.org/forecast5)
-  - Client's current coordinates are fetched by [Google Geolocation API](https://developers.google.com/maps/documentation/geolocation/overview)
+  - Client's current coordinates are fetched through [Google Geolocation API](https://developers.google.com/maps/documentation/geolocation/overview)
   - Location is positioned through [Google Geocoding API](https://developers.google.com/maps/documentation/geocoding/overview) by latitude and longitude.
 ## Get API keys
   ### Google API Key
