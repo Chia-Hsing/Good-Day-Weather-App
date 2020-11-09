@@ -2,6 +2,10 @@
 
 A weather app built with __React__, which can help you check the weather froecast of either your current location or any city around the world in the next 5 days in the future. 
 
+# Live Demo
+
+[Good Day Weather App](https://chia-hsing.github.io/Good-Day-Weather-App-react/)
+
 # Development stack
 - Use [Create-React-App](https://create-react-app.dev/) as the app build tool.
 - Use [Redux](https://redux.js.org/) for global state management. .
@@ -65,8 +69,6 @@ $ npm start
 
 ![image](https://github.com/Chia-Hsing/Good-Day-Weather-App-react/blob/master/src/img/GoodDayWeatherApp.png)
 
-# Live Demo
 
-[Good Day Weather App](https://chia-hsing.github.io/Good-Day-Weather-App-react/)
 
 # Current progress
